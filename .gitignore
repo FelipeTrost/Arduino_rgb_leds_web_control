@@ -1,0 +1,14 @@
+frontend/node_modules
+frontend/.expo
+frontend/.expo-shared
+frontend/.vscode
+frontend/web-build
+
+garbage_can_code.txt
+
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
