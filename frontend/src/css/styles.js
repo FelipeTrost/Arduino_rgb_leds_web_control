@@ -31,11 +31,15 @@ export default StyleSheet.create({
       display: 'flex',
       flexDirection: 'row',
       flexWrap: 'nowrap',
+      justifyContent: 'space-between',
       alignItems: 'center',
       backgroundColor: 'white',
-      padding: 10,
-      marginTop: 20,
-      marginBottom: 20,
+      paddingTop: 10,
+      paddingBottom: 10,
+      paddingLeft: 40,
+      paddingRight: 40,
+      marginTop: 10,
+      marginBottom: 10,
       borderRadius: 10
     },
     actionText: {

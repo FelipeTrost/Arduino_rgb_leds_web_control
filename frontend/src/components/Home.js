@@ -1,12 +1,15 @@
 import React from 'react';
-import { View , Text, Button, FlatList, TouchableOpacity } from 'react-native';
+import { FlatList, TouchableOpacity, ScrollView } from 'react-native';
 import styles from '../css/styles';
 import Action from './Action';
 import { Icon } from 'react-native-elements'
+import { useValueContext } from '../Context';
 
 export default ({ navigation }) => {
+    const {ip, key} = useValueContext();
+
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <TouchableOpacity
                 style={styles.floatingButton}
                 onPress={() => navigation.navigate('Settings')}
@@ -17,13 +20,13 @@ export default ({ navigation }) => {
 
             <FlatList
                 data={[
-                    {title: "hola", h:"jajajajajajajajaja"},
-                    {title: "hola", h:"jajajajajajajajaja"},
-                    {title: "hola", h:"jajajajajajajajaja"},
-                    {title: "hola", h:"jajajajajajajajaja"}
+                    {title: "rainbow", endpoint: "rainbow", ip, key},
+                    {title: "simplerainbow", endpoint:"simplerainbow", ip, key},
+                    {title: "off", endpoint:"off", ip, key},
                 ]}
                 renderItem={Action}
+                keyExtractor={item => item.title}
             />
-        </View>
+        </ScrollView>
     );
 }

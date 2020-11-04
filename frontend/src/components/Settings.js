@@ -1,23 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { View , Text, Button, TextInput } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useValueContext } from '../Context';
 import styles from '../css/styles';
 
 export default () => {
-    const [ip, setIp] = useState('192.168.0.1');
-    const [key, setKey] = useState('key');
+    const {configIp, configKey, ip, key} = useValueContext();
 
-    useEffect(()=> {
-        Promise.all([
-            AsyncStorage.getItem('ip'),
-            AsyncStorage.getItem('key')
-        ])
-        .then(res => {
-            const [preip, prekey] = res;
-            setIp(preip);
-            setKey(prekey)
-        })
-    }, []);
+    const [ipInput, setIp] = useState(ip);
+    const [keyInput, setKey] = useState(key);
+
 
     return (
         <View style={styles.container}>
@@ -25,21 +16,21 @@ export default () => {
             <TextInput
                 style={styles.textInput}
                 onChangeText={text => setIp(text)}
-                value={ip}
+                value={ipInput}
             />
 
             <Text>Arduino key</Text>
             <TextInput
                 style={styles.textInput}
                 onChangeText={text => setKey(text)}
-                value={key}
+                value={keyInput}
             />
 
             <Button 
                 onPress={()=>{
                     Promise.all([
-                        AsyncStorage.setItem('ip', ip),
-                        AsyncStorage.setItem('key', key)
+                        configIp(ipInput),
+                        configKey(keyInput)
                     ])
                     .then(() => alert('Done succesfuly'))
                 }}
