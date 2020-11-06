@@ -1,9 +1,11 @@
 import React from 'react';
 import { Text, View, Button } from 'react-native';
+import { useValueContext } from '../Context';
 import styles from '../css/styles';
 
 export default ({ item }) => {
-    const {title, ip, key, endpoint} = item;
+    const {ip, key} = useValueContext();
+    const {title, endpoint} = item;
     
     const send = () => {
         fetch(`${ip}/${key}/${endpoint}`)
