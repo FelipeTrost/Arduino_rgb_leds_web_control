@@ -33,12 +33,12 @@ export default ({ visible, onColor, close }) => {
                         style={{flex: 1}}
                         sliderComponent={Slider}
                     />
-                    <br/>
+          
                     <TouchableHighlight
                         style={{ backgroundColor: "#F194FF",
                         borderRadius: 20,
                         padding: 10,
-                        elevation: 2, backgroundColor: "#2196F3" }}
+                        elevation: 2, backgroundColor: "#2196F3", marginTop:30 }}
                         onPress={() => close && close()}
                     >
                         <Text style={styles.textStyle}>Hide Modal</Text>
