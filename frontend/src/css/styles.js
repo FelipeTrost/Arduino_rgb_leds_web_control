@@ -4,7 +4,6 @@ export default StyleSheet.create({
     container: {
       maxWidth: 800,
       width: '90%',
-      margin: 'auto',
       marginTop: 20,
     },
     textInput: {
@@ -47,7 +46,8 @@ export default StyleSheet.create({
       color: 'red',
       marginRight: 200
     },
-    floatingPicker: {
-
+    center:{
+      display: 'flex',
+      alignItems: 'center'
     }
 });
