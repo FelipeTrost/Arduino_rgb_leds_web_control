@@ -18,7 +18,7 @@ export function ContextProvider({ children }) {
 
   const configKey = async newKey => {
     await AsyncStorage.setItem('key', newKey);
-    setIp(newKey);
+    setKey(newKey);
   }
 
   useEffect(() => {
