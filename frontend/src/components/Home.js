@@ -3,11 +3,8 @@ import { FlatList, TouchableOpacity, ScrollView } from 'react-native';
 import styles from '../css/styles';
 import Action from './Action';
 import { Icon } from 'react-native-elements'
-import { useValueContext } from '../Context';
 
 export default ({ navigation }) => {
-    const {ip, key} = useValueContext();
-
     return (
         <ScrollView style={styles.container}>
             <TouchableOpacity
@@ -20,11 +17,12 @@ export default ({ navigation }) => {
 
             <FlatList
                 data={[
-                    {title: "rainbow", endpoint: "rainbow", ip, key},
-                    {title: "simplerainbow", endpoint:"simplerainbow", ip, key},
-                    {title: "off", endpoint:"off", ip, key},
+                    {title: "Rainbow", endpoint: "rainbow"},
+                    {title: "Simplerainbow", endpoint:"simplerainbow"},
+                    {title: "Off", endpoint:"off"},
+                    {title: "Color", endpoint:"color", color:true},
                 ]}
-                renderItem={Action}
+                renderItem={({item}) => <Action item={item} />}
                 keyExtractor={item => item.title}
             />
         </ScrollView>

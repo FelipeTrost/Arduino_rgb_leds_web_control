@@ -40,10 +40,14 @@ export default StyleSheet.create({
       paddingRight: 40,
       marginTop: 10,
       marginBottom: 10,
-      borderRadius: 10
+      borderRadius: 10,
+      position: 'relative'
     },
     actionText: {
       color: 'red',
       marginRight: 200
+    },
+    floatingPicker: {
+
     }
 });
